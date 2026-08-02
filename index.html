@@ -1,0 +1,128 @@
+<<!DOCTYPE html>
+<html>
+<head>
+<title>AI Resume Builder</title>
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >    
+</head>
+<body>
+<div class="sidebar">
+    <h1>AI Resume Builder</h1> 
+<p class="moving-text">Get your perfect resume within minutes.</p>
+<p>Create a professional resume in minutes with AI assistance.</p>
+</div>
+
+<div class="main-content">
+
+
+    <form method="POST">
+
+    <div class="section"></div>
+
+    <p>{{ skills_learnt }}</p>
+<div class="section"></div>
+    <h2>Personal information</h2>
+    <label>Full name</label>
+    <input type="text" placeholder ="Enter your full name, for example: Kriday Verma" name="full-name" value="{{ full_name }}">
+    <label>Email ID</label>
+    <input type="email"placeholder="Enter your email address, for example: xyz@gmail.com" name="email" value="{{email}}">
+    <label>Contact information</label>
+    <input placeholder="Enter your contact info, for example: 1234567891" name="contact-info" type="tel" value="{{contact_info}}">
+
+<div class="section"></div>
+    <h2>Education</h2>
+    <label>School Name</label>
+    <input type="text" placeholder="Enter your school name" name="School" value="{{school}}">
+    <label>Degree</label>
+    <input type="text" placeholder="Enter your Degree, for example : B.Sc. Computer Science" name="Degree" value="{{degree}}">
+    <label>Field of Study</label>
+    <input type="text" placeholder="Enter the type of field of your degree" name="field" value="{{field}}">
+
+<div class="section"></div>
+    <h2>Experience</h2>
+    <label>Company Name</label>
+    <input type="text" placeholder="Enter your company's name" name="Company" value="{{company}}"> 
+    <label>Job Title</label>
+    <input type="text" placeholder="Enter your job title" name="jobtitle" value="{{job_title}}">
+    <label>Responsibilities</label>
+<textarea rows="5" placeholder="Enter your responsibilities" name="Responsibilities">{{ responsibilities }}</textarea>
+<div class="section"></div>
+    <h2>Projects</h2>
+    <label>Project Name</label>
+    <input type="text" placeholder="Enter your project's name" name="projectname" value="{{project_name}}">
+    <label>Technologies Used</label>
+    <input type="text" placeholder="Enter the Technologies used" name="tech" value="{{technologies}}">
+    <label>Project Description</label>
+<textarea rows="5" placeholder="Enter the project's description" name="desc">{{ project_description }}</textarea>    <label>Github Link</label>
+    <input type="url" placeholder="Enter link for Github" name="github-link" value="{{github_link}}">
+
+<div class="section">
+    <h2>Skills</h2>
+    <label>Skills Learnt</label>
+    <input type="text" placeholder="Enter the skills learnt, for example: Python, Flask, HTML, CSS, SQL" name="Skills-learnt" value="{{skills_learnt}}">
+</div>
+    <div class="section">
+
+    <h2>Languages</h2>
+    <label>Languages</label>
+    <input type="text" placeholder="Enter the Languages you know" name="lang" value="{{languages}}">
+    </div>
+
+    <div class="section">
+    <h2>Certifications</h2>
+    <label>Certificate Name</label>
+    <input type="text" placeholder="Enter the name of certificate received" name="cert" value="{{certificate}}">
+    <label>Description of certificate</label>
+    <input type="text" placeholder="Enter the key learnings from this certificate" name="descert" value="{{ certificate_description }}">
+    <label>Issued Year</label>
+    <input type="date" placeholder="Enter the issued year of the certificate" name="certdate" value="{{ certificate_date }}">
+</div>
+    <div class="section">
+    <h2>Links</h2>
+    <label>Linkedin Link</label>
+    <input type="url" placeholder="Enter your Linkedin link" name="linkedinlink" value="{{ linkedin }}">
+    <label>Portfolio Website</label>
+    <input type="url" placeholder="Enter your Portfolio Website" name="Projectlink" value="{{ portfolio }}">
+</div>
+    <div class="section">
+    <h2>Career Objective</h2>
+    <label>Career Objective</label>
+<textarea rows="5" placeholder="Enter your Career Objective" name="Careerobj">{{ career_objective }}</textarea></div>
+
+
+{% if resume %}
+<div class="resume-preview">
+    <h2>AI Generated Resume</h2>
+    {{ resume|safe }}
+</div>
+{% endif %}
+
+    <button 
+    type="submit"
+    name="action"
+    value="create"
+    class="create-btn">
+    Create Resume 
+    </button>
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>>
